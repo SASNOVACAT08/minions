@@ -25,7 +25,9 @@ client.on("ready",async () => {
       prefix: "?",
       region: Region.EUROPE_WEST
     })
+    console.log(guild)
   }
+  console.log(servers)
 });
 
 client.commands.add(ElosCommand);
