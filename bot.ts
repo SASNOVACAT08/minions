@@ -1,15 +1,14 @@
 import { CommandClient, config, GatewayIntents } from "./deps.ts";
-import { Guild } from "./models/Guild.ts"
-import { Region } from "./models/Region.ts"
 
-if(Deno.env.get("ENVIRONMENT") === "local"){
-  config({ safe: true, export: true });
-}
+const env = config({ safe: true });
 
 import ElosCommand from "./commands/Elo/Elos.ts";
 import ElofCommand from "./commands/Elo/Elof.ts";
 import Prefix from "./commands/ConfigDiscord/Prefix.ts";
 import Config from "./commands/ConfigDiscord/Config.ts"
+
+import { Guild } from "./models/Guild.ts"
+import { Region } from "./models/Region.ts"
 
 const guilds: Array<Guild> = []
 
@@ -35,7 +34,7 @@ client.commands.add(ElofCommand);
 client.commands.add(Prefix);
 client.commands.add(Config)
 
-client.connect(Deno.env.get("DISCORD_API_KEY"), [
+client.connect(env.DISCORD_API_KEY, [
   GatewayIntents.DIRECT_MESSAGES,
   GatewayIntents.GUILDS,
   GatewayIntents.GUILD_MESSAGES,

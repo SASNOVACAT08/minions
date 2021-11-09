@@ -2,7 +2,9 @@ import { Region } from "../models/Region.ts";
 import { Account, Elo } from "../models/Account.ts";
 import { Queue } from "../models/Queue.ts";
 import { eloEmbed } from "../embed/Elo.ts";
-import { Embed } from "../deps.ts";
+import { Embed, config } from "../deps.ts";
+
+const env = config({safe: true})
 
 class LeagueOfLegends {
   private options: RequestInit;
@@ -83,5 +85,5 @@ class LeagueOfLegends {
   }
 }
 
-const leagueServices = new LeagueOfLegends(Deno.env.get("LOL_API_KEY") ?? "");
+const leagueServices = new LeagueOfLegends(env.LOL_API_KEY ?? "");
 export default leagueServices;
