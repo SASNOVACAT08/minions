@@ -7,6 +7,7 @@ export default class PrefixCommand extends Command {
   aliases = ["prefix"];
 
   beforeExecute(ctx: CommandContext): boolean{
+    console.log('ttt')
     return configServices.getPrefixGuild(ctx)
   }
 
