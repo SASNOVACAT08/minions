@@ -1,6 +1,8 @@
 import { CommandClient, config, GatewayIntents } from "./deps.ts";
 
-config({ safe: true, export: true });
+if(Deno.env.get("ENVIRONMENT") === "local"){
+  config({ safe: true, export: true });
+}
 
 import ElosCommand from "./commands/Elo/Elos.ts";
 import ElofCommand from "./commands/Elo/Elof.ts";
