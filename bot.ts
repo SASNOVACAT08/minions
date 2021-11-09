@@ -1,7 +1,6 @@
-import { CommandClient, config, GatewayIntents } from "./deps.ts";
+import "./env.ts"
 
-const env = config({ safe: true });
-
+import { CommandClient, GatewayIntents } from "./deps.ts";
 import ElosCommand from "./commands/Elo/Elos.ts";
 import ElofCommand from "./commands/Elo/Elof.ts";
 import Prefix from "./commands/ConfigDiscord/Prefix.ts";
@@ -34,7 +33,7 @@ client.commands.add(ElofCommand);
 client.commands.add(Prefix);
 client.commands.add(Config)
 
-client.connect(env.DISCORD_API_KEY, [
+client.connect(Deno.env.get("DISCORD_API_KEY"), [
   GatewayIntents.DIRECT_MESSAGES,
   GatewayIntents.GUILDS,
   GatewayIntents.GUILD_MESSAGES,

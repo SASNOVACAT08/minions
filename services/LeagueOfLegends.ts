@@ -85,5 +85,5 @@ class LeagueOfLegends {
   }
 }
 
-const leagueServices = new LeagueOfLegends(env.LOL_API_KEY ?? "");
+const leagueServices = new LeagueOfLegends(Deno.env.get("LOL_API_KEY") ?? "");
 export default leagueServices;
