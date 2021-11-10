@@ -2,9 +2,7 @@ import { Region } from "../models/Region.ts";
 import { Account, Elo } from "../models/Account.ts";
 import { Queue } from "../models/Queue.ts";
 import { eloEmbed } from "../embed/Elo.ts";
-import { Embed, config } from "../deps.ts";
-
-const env = config({safe: true})
+import { Embed } from "../deps.ts";
 
 class LeagueOfLegends {
   private options: RequestInit;
