@@ -1,4 +1,4 @@
-class TeamfightTactis {
+export class TeamfightTactis {
   private token: string;
 
   constructor(token: string) {

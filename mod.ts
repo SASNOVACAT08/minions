@@ -1,5 +1,6 @@
-import { Application } from "./deps.ts"
-import "./bot.ts"
+import "./env.ts";
+import { Application } from "oak";
+import "./bot.ts";
 
 const app = new Application();
 
