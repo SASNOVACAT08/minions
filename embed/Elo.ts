@@ -1,5 +1,5 @@
-import { Embed } from "harmony";
-import { Elo } from "/models/Account.ts";
+import { Embed } from "../deps.ts";
+import { Elo } from "../models/Account.ts";
 
 export const eloEmbed = (summonerName: string, elo: Elo): Embed => {
   const rank = "```" + `${elo.tier} ${elo.rank} ${elo.lp}lp` + "```";
