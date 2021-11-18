@@ -1,7 +1,7 @@
 import { Command, CommandContext } from "../../deps.ts";
 import configServices from "../../services/Config.ts";
 import { embedConfig } from "../../embed/Config.ts";
-import guilds from "../../bot.ts";
+import guilds from "../../mod.ts";
 
 export default class ConfigCommand extends Command {
   name = "Config";

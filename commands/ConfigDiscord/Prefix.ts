@@ -1,6 +1,6 @@
 import { Command, CommandContext } from "../../deps.ts";
 import configServices from "../../services/Config.ts";
-import guilds from "../../bot.ts";
+import guilds from "../../mod.ts";
 
 export default class PrefixCommand extends Command {
   name = "Prefix";
