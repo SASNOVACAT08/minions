@@ -1,4 +1,4 @@
-import { config } from "./deps.ts";
+import { config } from "dotenv";
 
 if (!Deno.env.get("ENVIRONMENT")) {
   config({ safe: true, export: true });
