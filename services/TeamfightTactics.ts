@@ -1,4 +1,4 @@
-class TeamfightTactis {
+class _TeamfightTactics {
   private token: string;
 
   constructor(token: string) {
