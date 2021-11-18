@@ -17,7 +17,7 @@ export const embedConfig = (
     value: "```" + servers + "```",
   });
   embed.addField({
-    name: ":homes: ```Regions Riot```",
+    name: ":homes: ```Regions```",
     value: "```" + (region ?? "Aucun").toUpperCase() + "```",
   });
   return embed;

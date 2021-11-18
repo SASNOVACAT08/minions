@@ -38,4 +38,4 @@ jobs:
           script: |
             cd minions
             git pull origin main
-            pm2 restart main
+            pm2 restart minions
