@@ -1,5 +1,5 @@
-import { Embed } from "../deps.ts";
-import { Region } from "../models/Region.ts";
+import { Embed } from "harmony";
+import { Region } from "/models/Region.ts";
 
 export const embedConfig = (
   ping: number,

@@ -1,5 +1,5 @@
-import { CommandContext } from "../deps.ts";
-import guilds from "../mod.ts";
+import { CommandContext } from "harmony";
+import guilds from "/mod.ts";
 
 class Config {
   getPrefixGuild(ctx: CommandContext): boolean {

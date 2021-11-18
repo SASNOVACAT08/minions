@@ -1,8 +1,8 @@
-import { Region } from "../models/Region.ts";
-import { Account, Elo } from "../models/Account.ts";
-import { Queue } from "../models/Queue.ts";
-import { eloEmbed } from "../embed/Elo.ts";
-import { Embed } from "../deps.ts";
+import { Region } from "/models/Region.ts";
+import { Account, Elo } from "/models/Account.ts";
+import { Queue } from "/models/Queue.ts";
+import { eloEmbed } from "/embed/Elo.ts";
+import { Embed } from "harmony";
 
 class LeagueOfLegends {
   private options: RequestInit;

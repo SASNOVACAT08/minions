@@ -1,6 +1,6 @@
 import "./env.ts";
 
-import { CommandClient, GatewayIntents } from "./deps.ts";
+import { CommandClient, GatewayIntents } from "harmony";
 import ElosCommand from "./commands/Elo/Elos.ts";
 import ElofCommand from "./commands/Elo/Elof.ts";
 import Prefix from "./commands/ConfigDiscord/Prefix.ts";
@@ -24,7 +24,7 @@ client.on("ready", async () => {
       region: Region.EUROPE_WEST,
     });
   }
-  console.log("Start");
+  console.log("Bot Starting ... 🚀");
 });
 
 client.commands.add(ElosCommand);
