@@ -4,6 +4,7 @@ export interface Account {
   summonerId: string;
   summonerName: string;
   level: number;
+  profileIcon: number;
 }
 
 export interface Elo {
