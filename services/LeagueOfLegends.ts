@@ -2,6 +2,7 @@ import { Region } from "/models/Region.ts";
 import { Account, Elo } from "/models/Account.ts";
 import { Queue } from "/models/Queue.ts";
 import { eloEmbed } from "/embed/Elo.ts";
+import { noEmbed } from "/embed/NoEmbed.ts";
 import { Embed } from "harmony";
 
 class LeagueOfLegends {
@@ -71,14 +72,14 @@ class LeagueOfLegends {
   async getEloMessage(
     summonerName: string,
     queueType: Queue,
-  ): Promise<string | Embed> {
+  ): Promise<Embed> {
     const accountInfos = await this.getAccountInfos(summonerName);
     const elos = await this.getElo(accountInfos.summonerId);
     const game = elos.find((elo) => elo.queueType === queueType);
     if (game) {
       return eloEmbed(summonerName, game);
     } else {
-      return JSON.stringify(`Pas d'elo dans cette queue`);
+      return noEmbed("Pas d'elo pour cette queue !");
     }
   }
 }
