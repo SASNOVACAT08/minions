@@ -1,22 +1,29 @@
-import { Command, CommandContext } from "harmony";
+import { SlashModule, ApplicationCommandInteraction, ApplicationCommandOptionType, slash, ApplicationCommandPartial } from "harmony";
 import leagueServices from "/services/LeagueOfLegends.ts";
 import { Queue } from "/models/Queue.ts";
-import configServices from "/services/Config.ts";
 
-export default class ElofCommand extends Command {
-  name = "Elo - Flex";
-  aliases = ["elof"];
+export const elofModule:  ApplicationCommandPartial = {
+  name: 'elof',
+  description: 'Elo - Flex !!',
+  options: [
+    {
+      name: 'summonername',
+      description: 'Summoner Name',
+      required: true,
+      type: ApplicationCommandOptionType.STRING
+    }
+  ]
+}
 
-  beforeExecute(ctx: CommandContext): boolean {
-    return configServices.getPrefixGuild(ctx);
-  }
-
-  async execute(ctx: CommandContext) {
-    const summonerName = ctx.rawArgs.join(" ");
+export class ElofSlash extends SlashModule {
+  @slash()
+  async elof(ctx: ApplicationCommandInteraction): Promise<void> {
+    const summonerName = ctx.data.options[0].value as string;
     const message = await leagueServices.getEloMessage(
       summonerName,
       Queue.FLEX,
     );
-    ctx.message.reply(message);
+    ctx.reply({ embeds: [message] });
   }
 }
+

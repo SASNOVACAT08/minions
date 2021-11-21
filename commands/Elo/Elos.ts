@@ -1,22 +1,29 @@
-import { Command, CommandContext } from "harmony";
+import { SlashModule, ApplicationCommandInteraction, ApplicationCommandOptionType, slash, ApplicationCommandPartial } from "harmony";
 import leagueServices from "/services/LeagueOfLegends.ts";
 import { Queue } from "/models/Queue.ts";
-import configServices from "/services/Config.ts";
 
-export default class ElosCommand extends Command {
-  name = "Elo - Solo Q";
-  aliases = ["elos"];
+export const elosModule:  ApplicationCommandPartial = {
+  name: 'elos',
+  description: 'Elo - SoloQ',
+  options: [
+    {
+      name: 'summonername',
+      description: 'Summoner Name',
+      required: true,
+      type: ApplicationCommandOptionType.STRING
+    }
+  ]
+}
 
-  beforeExecute(ctx: CommandContext): boolean {
-    return configServices.getPrefixGuild(ctx);
-  }
-
-  async execute(ctx: CommandContext) {
-    const summonerName = ctx.rawArgs.join(" ");
+export class ElosSlash extends SlashModule {
+  @slash()
+  async elos(ctx: ApplicationCommandInteraction): Promise<void> {
+    const summonerName = ctx.data.options[0].value as string;
     const message = await leagueServices.getEloMessage(
       summonerName,
       Queue.SOLO,
     );
-    ctx.message.reply(message);
+    ctx.reply({ embeds: [message] });
   }
 }
+
