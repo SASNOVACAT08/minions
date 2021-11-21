@@ -1,19 +1,25 @@
-import { SlashModule, ApplicationCommandInteraction, ApplicationCommandOptionType, slash, ApplicationCommandPartial } from "harmony";
+import {
+  ApplicationCommandInteraction,
+  ApplicationCommandOptionType,
+  ApplicationCommandPartial,
+  slash,
+  SlashModule,
+} from "harmony";
 import leagueServices from "/services/LeagueOfLegends.ts";
 import { Queue } from "/models/Queue.ts";
 
-export const elosModule:  ApplicationCommandPartial = {
-  name: 'elos',
-  description: 'Elo - SoloQ',
+export const elosModule: ApplicationCommandPartial = {
+  name: "elos",
+  description: "Elo - SoloQ",
   options: [
     {
-      name: 'summonername',
-      description: 'Summoner Name',
+      name: "summonername",
+      description: "Summoner Name",
       required: true,
-      type: ApplicationCommandOptionType.STRING
-    }
-  ]
-}
+      type: ApplicationCommandOptionType.STRING,
+    },
+  ],
+};
 
 export class ElosSlash extends SlashModule {
   @slash()
@@ -26,4 +32,3 @@ export class ElosSlash extends SlashModule {
     ctx.reply({ embeds: [message] });
   }
 }
-

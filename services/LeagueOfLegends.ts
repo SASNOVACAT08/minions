@@ -79,7 +79,7 @@ class LeagueOfLegends {
     if (game) {
       return eloEmbed(summonerName, game);
     } else {
-      return noEmbed("Pas d'elo pour cette queue !")
+      return noEmbed("Pas d'elo pour cette queue !");
     }
   }
 }
