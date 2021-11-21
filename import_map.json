@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "harmony": "https://deno.land/x/harmony@v2.3.0/mod.ts",
+    "dotenv": "https://deno.land/x/dotenv@v3.1.0/mod.ts",
+    "/": "./",
+    "./": "./"
+  }
+}
