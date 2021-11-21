@@ -7,18 +7,23 @@ export const embedConfig = (
   region?: Region,
 ): Embed => {
   const embed = new Embed();
-  embed.setTitle("Stat de ```Minions```");
+  embed.setTitle("Stat de **Minions**");
   embed.addField({
-    name: ":ping_pong: ```Ping```",
-    value: "```" + ping + "```",
+    name: ":ping_pong: Ping",
+    value: `${ping}`,
+    inline: true,
   });
   embed.addField({
-    name: ":minidisc: ```Serveurs```",
-    value: "```" + servers + "```",
+    name: ":globe_with_meridians: Regions",
+    value: `${(region ?? "Aucun").toUpperCase()}`,
+    inline: true,
   });
   embed.addField({
-    name: ":homes: ```Regions```",
-    value: "```" + (region ?? "Aucun").toUpperCase() + "```",
+    name: ":computer: Serveurs",
+    value: `${servers}`,
+    inline: true,
   });
+  embed.setTimestamp(Date.now());
+  embed.setFooter("Minions");
   return embed;
 };
